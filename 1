@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>個人網頁</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="personal-info">
+    <div id="student-id">學號：91118109</div>
+    <div id="name">姓名：周力宏</div>
+    <div id="photo">
+      <img src="photo.jpg" alt="個人相片">
+    </div>
+  </div>
+
+  <!-- 連結到響應式網站 -->
+  <div id="link-section">
+    <a href="https://k0435.github.io/invest1125/" target="_blank">響應式網站設計：理財WebAPP</a>
+  </div>
+
+  <!-- 連結到個人收藏頁 -->
+  <div id="nav-to-collect">
+    <a href="collect.html">我的個人收藏</a>
+  </div>
+
+</body>
+</html>
+/* 設定整頁背景為淺黃色 */
+body {
+  background-color: #FFFBCC;
+  font-family: Arial, sans-serif;
+}
+
+#personal-info {
+  margin: 20px;
+}
+
+#student-id, #name {
+  padding: 10px;
+  margin-bottom: 10px;
+  color: #6F4F28; /* 咖啡色 */
+  background-color: #D2B48C; /* 淺棕色 */
+  border: 2px solid #6F4F28; /* 咖啡色邊框 */
+  border-radius: 6px; /* 圓角 */
+}
+
+/* 設定相片的樣式 */
+#photo img {
+  width: 400px;
+  height: 300px;
+  border: 3px solid green; /* 綠色邊框 */
+  border-radius: 10px; /* 圓角 */
+}
+
+/* 連結樣式 */
+#link-section a, #nav-to-collect a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+#link-section a:hover, #nav-to-collect a:hover {
+  background-color: #45a049;
+}
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的個人收藏</title>
+  <link rel="stylesheet" href="collect.css">
+  <script src="collect.js" defer></script>
+</head>
+<body>
+  <h1>我的收藏</h1>
+
+  <div id="image-container">
+    <img src="item1.jpg" alt="收藏物品1" id="item-image">
+  </div>
+
+  <div id="buttons">
+    <button onclick="prevImage()">上一項收藏</button>
+    <button onclick="nextImage()">下一項收藏</button>
+  </div>
+</body>
+</html>
+body {
+  background-color: #FFC0CB; /* 粉紅色背景 */
+  font-family: Arial, sans-serif;
+}
+
+#image-container {
+  text-align: center;
+}
+
+#item-image {
+  width: 300px;
+  height: 400px;
+  border: 2px solid blue; /* 藍色邊框 */
+  transition: all 1s ease; /* 圖片變換效果 */
+}
+
+/* 當滑鼠移動到圖片上，圖片動態漸變大小 */
+#item-image:hover {
+  width: 400px;
+  height: 500px;
+}
+
+#buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+let images = ["item1.jpg", "item2.jpg", "item3.jpg"]; // 收藏物品圖片
+let currentIndex = 0;
+
+function prevImage() {
+  currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+  document.getElementById("item-image").src = images[currentIndex];
+}
+
+function nextImage() {
+  currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+  document.getElementById("item-image").src = images[currentIndex];
+}
